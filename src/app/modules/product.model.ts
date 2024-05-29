@@ -59,6 +59,20 @@ const productSchema = new Schema<TProduct>({
     type: inventorySchema,
     required: true,
   },
+  isDeleted: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+productSchema.pre('find', async function (next) {
+  this.find({ isDeleted: { $ne: true } });
+  next();
+});
+
+productSchema.pre('findOne', async function (next) {
+  this.find({ isDeleted: { $ne: true } });
+  next();
 });
 
 // Create the Product model

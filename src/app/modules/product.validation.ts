@@ -44,6 +44,7 @@ const productValidationSchema = z.array(
     tags: z.array(z.string()).min(1, 'Product must have at least one tag'),
     variants: z.array(variantSchema),
     inventory: inventorySchema,
+    isDeleted: z.boolean().default(false).optional(),
   }),
 );
 
