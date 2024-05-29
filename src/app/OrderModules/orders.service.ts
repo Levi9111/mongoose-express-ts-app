@@ -1,7 +1,7 @@
 import { TOrder } from './orders.interface';
 import Order from './orders.model';
 
-const createOrdersIntoDB = async (orderData: TOrder) => {
+const createOrdersIntoDB = async (orderData: TOrder[]) => {
   const result = await Order.create(orderData);
   return result;
 };

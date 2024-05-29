@@ -5,7 +5,6 @@ import productServices from './product.service';
 const createProduct = async (req: Request, res: Response) => {
   try {
     const { product } = req.body;
-    console.log(product);
 
     const validatedProduct = productValidationSchema.parse(product);
 
